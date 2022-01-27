@@ -11,12 +11,20 @@
   </head>
   <body>
     <header>
-      <h1><a href = /highscores.html>View Highscores</h1></a>
-        </section>
+      <nav class= "navbar">
+        <h1><a href = /highscores.html>View Highscores</h1></a>
+        <h2>Time 50</h2>
       </nav>
     </header>
     <main>
-  
+      <div class="timerbox">
+        <h3>Time <span id="timer">0</span></h3>
+      </div>
+      <div class="questionbox">
+        <h4>Welcome to the Legendary Coding Quiz!</h4>
+        <p>Click the play button to test your knowledge, you only have 50 seconds remember</p>
+        <a href="game.html"><button id="start">Start Quiz!</button></a>
+      </div>
     </main>
 
     <script src="assets/js/game.js"></script>
