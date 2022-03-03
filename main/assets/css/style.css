@@ -32,3 +32,14 @@
 #start:hover {
   transform: scale(1.1);
 }
+
+
+
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: visible;
+}
