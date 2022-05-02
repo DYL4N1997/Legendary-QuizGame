@@ -73,6 +73,11 @@ const questions = [
     }
 ]
 
+const startingTime = questions.length * 8 
+const timePenalty = 8
+let remainingTime
+let timer
+let score
 
 
 
