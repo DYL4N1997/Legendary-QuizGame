@@ -6,48 +6,57 @@
 
     <!--CSS-->
     <link rel="stylesheet" href="./assets/styles/reset.css">
-    <link rel="stylesheet" href="./assets/styles/main_layout.css">
-    <link rel="stylesheet" href="./assets/styles/style.css">
+    <link rel="stylesheet" href="./assets/css/main-layout.css">
+    <link rel="stylesheet" href="./assets/css/style.css">
 
     <title>JavaScript Quiz</title>
   </head>
   <body>
     <header>
       <nav class= "navbar">
-        <h1><a id="view_highscore_link" href ="#">View Highscores</h1></a>
+        <h1><a id="view_highscore" href ="#">View Highscores</h1></a>
         <h2><span id="time">Time: <span id="time_display">0</span></span></h2>
       </nav>
     </header>
 
     <main>
-      <div class="timerbox">
-        <h3>Time <span id="timer">0</span></h3>
-      </div> 
-      <div class="questionbox">
+      <section id="starting_page" class="questionbox">
         <h4>Welcome to the Legendary Coding Quiz!</h4>
         <p>Click the play button to test your knowledge, you only have 50 seconds remember</p>
-        <a href="game.html"><button id="start">Start Quiz!</button></a>
-      </div>
-    </main>
+        <button id="start_quiz">Start Quiz!</button></a>
+      </section>
 
-    <script src="assets/js/game.js"></script>
+        <div id="question_num_box"></div>
+
+        <section id="question_page" class="page hidden">
+          <h2 id="question_display"></h2>
+          <div id="answers_array"></div>
+          <hr>
+          <div id="feedback">Correct!</div>
+        </section>
+        
+        <section id="get_name_page" class="page hidden">
+          <h2>All done!</h2>
+
+          <p>Your final score is <span id="score_display"></span>.</p>
+
+          <br>
+
+          <p>Enter initials: 
+              <input type="text" name="initials" id="initials_input">
+              <button id="submit_initials">Submit</button>
+          </p>
+      </section>
+
+      <section id="highscore_page" class="page hidden">
+          <h2>Highscores</h2>
+
+          <div id="highscore_list"></div>
+
+          <button id="go_to_starting_page_button">Go Back</button>
+          <button id="clear_highscores_button">Clear Highscores</button>
+      </section>
+  </main>
+  <script src="assets/js/game.js"></script>
   </body>
 </html>
-
-
-
-
-
-<div class="screen" id="screen"></div>
-<div>
-  <ul id="button-area">
-    <button></button>
-    <button></button>
-    <button></button>
-    <button></button>
-  </ul>
-
-
-
-
-</div>

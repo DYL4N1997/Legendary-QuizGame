@@ -1,45 +1,138 @@
-* {
-    font:sans-serif;
-    color: #202020;
-    
-    box-sizing: border-box;
-    margin: 0; 
-    height: 30px;
-}
-
-.navbar {
-  margin-left: 20px;
-  padding-top: 20px;
-}
-
-.timerbox {
-  margin-left: 60%;
-  margin-top: 5%;
-}
-
-.questionbox {
-  margin-left: 35.5%;
-  margin-top: 20px;
-}
-
-#start {
-  margin-top: 10px;
-  margin-left: 15%;
+button {
+  background-color: purple;
   color: white;
+  padding: 0.5rem 0.75rem;
+  box-shadow: none;
+  border-radius: 0;
+  border: 0;
+}
+
+a {
+  color: black;
+}
+
+header {
+  display: inline-flex;
+  justify-content: space-between;
+  padding: 0.5rem;
+}
+
+main {
+  margin: auto;
+  max-width: 625px;
+  padding: 0.5rem;
+}
+
+main section h1 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+main section h2 {
+  font-size: 1.5rem;
+  margin: 1rem 0;
+}
+
+main section p {
+  font-size: 1.25rem;
+  margin: 1rem 0;
+}
+
+main section hr {
+  margin: 0.5rem 0;
+}
+
+main #starting_page h1, main #starting_page p {
+  text-align: center;
+}
+
+main #starting_page #start_quiz {
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+main #question_num_box {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main #question_num_box span {
+  background-color: purple;
+  font-size: 12px;
+  color: white;
+  width: 20px;
+  padding: 4px 0;
+  text-align: center;
+  transition: 0.25s;
+}
+
+main #question_num_box span.correct {
+  background-color: #6ab93d;
+}
+
+main #question_num_box span.wrong {
+  background-color: #b93d47;
+}
+
+main #question_page #answer_list {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+main #question_page #answers_array button {
+  margin: 0.1rem;
+}
+
+main #question_page #feedback {
+  font-weight: 600;
+}
+
+main #get_name_page #score_display {
+  font-weight: 600;
+}
+
+main #get_name_page #initials_input {
+  margin-right: 1rem;
+  border: 0px;
+  border-bottom: 1px solid purple;
+  padding: 0 0.5rem;
+  text-align: center;
+  width: 5rem;
+}
+
+main #get_name_page #initials_input:focus {
+  border-bottom: 2px solid purple;
+  outline: none;
+}
+
+main #highscore_page #highscore_list {
+  border: 2px solid purple;
+  margin-bottom: 0.5rem;
+  font-family: monospace;
+}
+
+main #highscore_page #highscore_list div {
+  padding: 0.2rem 0.5rem;
+}
+
+main #highscore_page #highscore_list div:nth-child(odd) {
   background-color: purple;
 }
 
-#start:hover {
+main #highscore_page #highscore_list div:nth-child(even) {
+  background-color: purple;
+}
+
+#start_quiz:hover {
   transform: scale(1.1);
 }
 
-
-
-
-.hide {
-  display: none;
+#time {
+  color: purple;
 }
 
-.show {
-  display: visible;
+#view_highscore {
+  color: purple;
 }
