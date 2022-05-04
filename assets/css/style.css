@@ -63,3 +63,41 @@ button:active{
   transform: scale(1.1);
 }
 
+.back-button {
+  margin-left: 0;
+}
+
+.hidden {
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+
+  width: 80%;
+  margin: auto;
+  height: 75%;
+  box-sizing: border-box;
+  padding: 20px 0;
+}
+
+#start {
+  text-align: center;
+}
+
+#question {
+  font-size: 1.4em;
+}
+
+#timer, 
+.choice-status {
+  text-align: right;
+}
+
+#timer {
+  padding-bottom: 10px;
+
+  font-size: 1.35em;
+  font-weight: bold;
+}
