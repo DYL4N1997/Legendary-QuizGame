@@ -53,7 +53,14 @@ StartBtn.addEventListener('click', startGame);
 Choices.addEventListener('click', processChoice);
 SubmitScore.addEventListener('submit', processInput);
 
-
+function startGame() {
+    showElement(QuizSections, QuizSection);
+    
+    displayTime();  
+    displayQuestion();
+  
+    startTimer();
+}
 
 
 

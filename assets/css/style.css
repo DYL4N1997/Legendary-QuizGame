@@ -101,3 +101,59 @@ main {
   font-size: 1.35em;
   font-weight: bold;
 }
+
+#time-remaining{
+  color: purple;
+}
+
+#choices {
+  list-style: none;
+  padding-left: 0;
+}
+
+#choices button {
+  margin-left: 0;
+}
+
+.choice-condition {
+  font-size: 1.35em;
+  font-weight: bold;
+}
+
+#correct {
+ color:  green;
+}
+
+#incorrect {
+  color: red;
+}
+
+#quiz-questions, 
+#end {
+  padding-bottom: 15px;
+}
+
+#score-text {
+  font-size: 1.2em;
+}
+
+#score {
+  font-weight: bold;
+  color: #88115b;
+}
+
+#submit-score {
+  margin-bottom: 10px;
+}
+
+#submit-score label {
+  display: block;
+}
+
+#initials {
+  padding: 3px;
+  font-size: 1em;
+
+  border-radius: 4px;
+  box-sizing: border-box;
+}
