@@ -53,7 +53,7 @@ StartBtn.addEventListener('click', startGame);
 Choices.addEventListener('click', processChoice);
 SubmitScore.addEventListener('submit', processInput);
 
-function startGame() {
+startGame = () => {
     showElement(QuizSections, QuizSection);
     
     displayTime();  
@@ -62,20 +62,39 @@ function startGame() {
     startTimer();
 }
 
-function showElement(siblingList, showElement) {
+showElement = (siblingList, showElement) => {
     for (element of siblingList) {
       hideElement(element);
     }
     showElement.classList.remove("hidden");
-  } 
+} 
   
-  function hideElement(element) {
+hideElement = (element) => {
     if (!element.classList.contains("hidden")) {
       element.classList.add("hidden");
     }
-  }
+}
   
+displayTime = () => {
+    TimeRemaining.textContent = totalTime;
+}
+  
+startTimer = () => {
+    totalTimeInterval = setInterval(function() {
+      totalTime--;
+      displayTime();
+      checkTime();
+  
+    }, 1000);
+}
 
+checkTime = () => {
+    if (totalTime <= 0) {
+      totalTime = 0;
+      endGame();
+    }
+}
+  
 
 
 // /** Set up the pages and get the quiz ready. */
