@@ -86,12 +86,12 @@ main {
   text-align: center;
 }
 
-#question {
+#questions {
   font-size: 1.4em;
 }
 
 #timer, 
-.choice-status {
+.choice-condition {
   text-align: right;
 }
 

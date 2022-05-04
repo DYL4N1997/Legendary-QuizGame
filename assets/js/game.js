@@ -1,85 +1,87 @@
-const main = document.getElementsByTagName('main')[0]
-const viewHighscore = document.getElementById('view_highscore')
-const timeDisplay = document.getElementById('time_display')
-const startQuiz = document.getElementById('start_quiz')
-const questionNumBox = document.getElementById('question_num_box')
-const questionDisplay = document.getElementById('question_display')
-const answersList = document.getElementById('answer_array')
-const answerFeedback = document.getElementById('feedback')
-const scoreDisplay = document.getElementById('score_display')
-const initialsInput = document.getElementById('initials_input')
-const submitInitials = document.getElementById('submit_initials')
-const highscoreList = document.getElementById('highscore_list')
-const StartingPage = document.getElementById('starting_page')
-const clearHighscores = document.getElementById('clear_highscores')
+const QuizSections = document.querySelectorAll(".quiz-section");
 
-const questions = [
-    {
-        'question': 'Commonly used data types DO NOT include:',
-        'answers': ['alerts','numbers','strings','booleans'],
-        'correct_index': 0
-    }, {
-        'question': 'The condition in an if/else statement is enclosed within ______.',
-        'answers': ['quotes','curly brackets','square brackets','parentheses'],
-        'correct_index': 3
-    }, {
-        'question': 'Which program is used by web clients to view the web pages?',
-        'answers': ['Web browser','Protocol','Web server','Search Engine'],
-        'correct_index': 0
-    }, {
-        'question': 'The ______ attribute is used to identify the values of variables.',
-        'answers': ['text','http-equiv','content','name'],
-        'correct_index': 2
-    }, {
-        'question': 'Which tag is used to identify the keywords describing the site?',
-        'answers': ['Comment tag','Title tag','Meta tag','Anchor tag'],
-        'correct_index': 2
-    }, {
-        'question': 'Which are used with a tag to modify its function?',
-        'answers': ['Files','Functions','Attributes','Documents'],
-        'correct_index': 2
-    }, {
-        'question': 'This is a declaration that IS NOT an html tag.  it is an instruction to the web browser about what version of HTML a web page is written in.',
-        'answers': ['html','doctype','head','body'],
-        'correct_index': 1
-    }, {
-        'question': 'Content information that appears between the oppening and closing ______ tags will show up in a browser view.',
-        'answers': ['body','html','head','table'],
-        'correct_index': 0
-    }, {
-        'question': 'What tag element will display a line across the screen?',
-        'answers': ['br','a','hr','line'],
-        'correct_index': 2
-    }, {
-        'question': 'In a/an ______ list numbers and roman numerals can appear.',
-        'answers': ['Unordered','Ordered','Definition','Straight line'],
-        'correct_index': 1
-    }, {
-        'question': 'This is a language used for describing the look and formatting of a document written in markup language.',
-        'answers': ['HTML','CSS','JSON','XML'],
-        'correct_index': 1
-    }, {
-        'question': 'There are ______ characters in the hexidecimal color code combining color shades of red, green, and blue.',
-        'answers': ['4','5','6','7'],
-        'correct_index': 2
-    }, {
-        'question': 'Which HTML tag is used to communicate with search engines and describe the Web page\'s content?',
-        'answers': ['meta','html','body','head'],
-        'correct_index': 0
-    }, {
-        'question': 'Which term describes the skeletal layout of a Web page, without colors or graphics? ',
-        'answers': ['A wireframe','Mind map','Template','Goals'],
-        'correct_index': 0
+const StartSection = document.getElementById("start");
+const StartBtn = document.getElementById("start-button");
+
+const QuizSection = document.getElementById("quiz-questions");
+const TimeRemaining = document.getElementById("time-remaining");
+const Questions = document.getElementById("questions");
+const Choices = document.getElementById("choices");
+const ChoiceCondition = document.querySelectorAll(".choice-condition");
+const Correct = document.getElementById("correct");
+const Wrong = document.getElementById("incorrect");
+
+const EndSection = document.getElementById("end");
+const EndTitle = document.getElementById("end-title");
+const Score = document.getElementById("score");
+const InitialsInput = document.getElementById("initials");
+const SubmitScore = document.getElementById("submit-score");
+const ErrorLog = document.getElementById("error-log");
+
+//Questions
+class Question {
+    constructor(question, choices, indexOfCorrectChoice) {
+      this.question = question;
+      this.choices = choices;
+      this.indexOfCorrectChoice = indexOfCorrectChoice;
     }
-]
+  }
+  const Question_1 = new Question("Commonly used data types DO NOT include: ", 
+    ["Strings", "Booleans", "Alerts", "Numbers"], 2);
+  const Question_2 = new Question("The condition in an if / else statement is enclosed within ____.", 
+    ["Quotes", "Curly brackets", "Parentheses", "Square brackets"], 2);
+  const Question_3 = new Question("Arrays in JavaScript can be used to store ____.", 
+    ["Numbers and Strings", "Other arrays", "Booleans", "All of the above"], 3);
+  const Question_4 = new Question("String values must be enclosed within _____ when being assigned to variables.", 
+    ["Commas", "Curly brackets", "Quotes", "Parentheses"], 2);
+  const Question_5 = new Question("A very useful tool used during development and debugging for printing content to the debugger is: ", 
+    ["JavaScript", "Terminal/Bash", "For Loops", "console.log"], 3);
+  const Question_6 = new Question("Which program is used by web clients to view the web pages?: ",
+    ["Web browser","Protocol","Web server","Search Engine"], 0);
+  const Question_7 = new Question("The ______ attribute is used to identify the values of variables.: ",
+  ["text","http-equiv","content","name"], 2);
+  const QuestionList = [Question_1, Question_2, Question_3, Question_4, Question_5, Question_6, Question_7];
 
-const startingTime = questions.length * 8 
-const timePenalty = 8
-let remainingTime
-let timer
-let score
 
 
+
+
+
+
+
+
+
+
+// /** Set up the pages and get the quiz ready. */
+// function init() {
+//     // Add all of the event listeners
+//     startQuiz.addEventListener('click', event => {
+//         event.preventDefault()
+//         displayQuestionPage()
+//     })
+//     answersArray.addEventListener('click', (event) => {
+//         event.preventDefault()
+//         if (event.target.matches('button')) {
+//             let button = event.target
+//             if (button.classList.contains('correct')) {
+//                 answerFeedback.textContent = "Correct!"
+//                 questionNumBox.children[nextQuestion - 1].classList.add('correct')
+//                 score++
+//             } else {
+//                 answerFeedback.textContent = "Wrong!"
+//                 questionNumBox.children[nextQuestion - 1].classList.add('wrong')
+//                 remainingTime -= timePenalty
+//             }
+//             if (remainingTime > 0) NextQuestion()
+//             else displayGetNamePage()
+//         }
+//     })
+
+
+
+// }
+
+// init()
 
 // let questions = [
 //     {
