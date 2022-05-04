@@ -49,7 +49,9 @@ let totalTime = 75;
 let totalTimeInterval;
 let choiceStatusTimeout; 
 
-
+StartBtn.addEventListener('click', startGame);
+Choices.addEventListener('click', processChoice);
+SubmitScore.addEventListener('submit', processInput);
 
 
 
