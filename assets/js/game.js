@@ -42,7 +42,12 @@ class Question {
   ["text","http-equiv","content","name"], 2);
   const QuestionList = [Question_1, Question_2, Question_3, Question_4, Question_5, Question_6, Question_7];
 
+ 
+let currentQuestion = 0;
 
+let totalTime = 75;
+let totalTimeInterval;
+let choiceStatusTimeout; 
 
 
 
