@@ -148,8 +148,43 @@ checkChoice = (userChoice) => {
   
 isChoiceCorrect = (choice) => {
     return choice === QuestionList[currentQuestion].indexOfCorrectChoice;
-  }
+}
 
+displayWrongChoiceCondition = () => {
+    deductTimeBy(10);
+  
+    styleTimeRemainingWrong();
+    showElement(ChoiceCondition, Wrong);
+  
+    choiceStatusTimeout = setTimeout(() => {
+      hideElement(Wrong);
+      TimeRemainingDefaultColor();
+    }, 1000);
+  }
+  
+    deductTimeBy = (seconds) => {
+    totalTime -= seconds;
+    checkTime();
+    displayTime();
+  }
+  
+    displayCorrectChoiceCondition = () => {
+    showElement(ChoiceCondition, Correct);
+  
+    choiceStatusTimeout = setTimeout(() => {
+      hideElement(Correct);
+    }, 1000);
+}
+
+//Get next question
+getNextQuestion = () => {
+    currentQuestion++;
+    if (currentQuestion >= QuestionList.length) {
+      endGame();
+    } else {
+      displayQuestion();
+    }
+}
 
 // /** Set up the pages and get the quiz ready. */
 // function init() {
