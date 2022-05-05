@@ -229,3 +229,33 @@ processInput = (e) => {
     return entry;
 }
   
+saveHighscoreEntry = (highscoreEntry) => {
+    const currentScores = getScoreList();
+    AddToHighscoreList(highscoreEntry, currentScores);
+    localStorage.setItem('scoreList', JSON.stringify(currentScores));
+}
+
+ScoreList = () => {
+    const currentScores = localStorage.getItem('scoreList');
+    if (currentScores) {
+      return JSON.parse(currentScores);
+    } else {
+      return [];
+    }
+  }
+  
+AddToHighscoreList = (newEntry, scoreList) => {
+    const newScoreIndex = NewScoreIndex(newEntry, scoreList);
+    scoreList.splice(newScoreIndex, 0, newEntry);
+  }
+  
+NewScoreIndex = (newEntry, scoreList) => {
+    if (scoreList.length > 0) {
+      for (let i = 0; i < scoreList.length; i++) {
+        if (scoreList[i].score <= newEntry.score) {
+          return i;
+        }
+      } 
+    }
+    return scoreList.length;
+  }
