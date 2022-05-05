@@ -186,113 +186,23 @@ getNextQuestion = () => {
     }
 }
 
-// /** Set up the pages and get the quiz ready. */
-// function init() {
-//     // Add all of the event listeners
-//     startQuiz.addEventListener('click', event => {
-//         event.preventDefault()
-//         displayQuestionPage()
-//     })
-//     answersArray.addEventListener('click', (event) => {
-//         event.preventDefault()
-//         if (event.target.matches('button')) {
-//             let button = event.target
-//             if (button.classList.contains('correct')) {
-//                 answerFeedback.textContent = "Correct!"
-//                 questionNumBox.children[nextQuestion - 1].classList.add('correct')
-//                 score++
-//             } else {
-//                 answerFeedback.textContent = "Wrong!"
-//                 questionNumBox.children[nextQuestion - 1].classList.add('wrong')
-//                 remainingTime -= timePenalty
-//             }
-//             if (remainingTime > 0) NextQuestion()
-//             else displayGetNamePage()
-//         }
-//     })
-
-
-
-// }
-
-// init()
-
-// let questions = [
-//     {
-//         qs: "this is question one",
-//         choices: ['a', 'b', 'c', 'd'],
-//         answer: 'b'
-
-//     },
-
-//     {
-//         qs: "this is question two",
-//         choices: ['a', 'b', 'c', 'd'],
-//         answer: 'b'
-
-//     },
-
-//     {
-//         qs: "this is question three",
-//         choices: ['a', 'b', 'c', 'd'],
-//         answer: 'b'
-
-//     }
-// ]
-
-// let currentQsIndex = 0
-
-
-// const startbtnEl = document.getElementById('start')
-// const displayScreen = document.querySelector(".questionbox")
-
-
-// // const startQuiz = document.getElementById('start')
-
-// startbtnEl.addEventListener('click', function startGame(event){
-
-// var startbutton = startbtnEl.classList.add('hide')
-
-
-// quizQs()
-
-
-// })
-
-
-// function quizQs() {
-
-// displayScreen.textContant = questions[currentQsIndex].qs
-
-// var buttonArea = document.getElementById("button-area")
-// buttonArea.innerHTML = ""
-
-// for(var i = 0; i < questions[currentQsIndex].choices.length; i++){
-
-//     var button = document.createElement("button");
-//     button.setAttribute("class", 'buttonDesign')
-//     button.textContent = questions[currentQsIndex].choices[i]
-//     button.onclick = checkAnswer;
-//     buttonArea.appendChild(button)
-// }
-
-
-// }
-
-
-// function checkAnswer(){
-
-
-  
-
-
-
-
+// End of the game
+endGame = () => {
+    clearInterval(totalTimeInterval);
     
-
-//     if(currentQsIndex === questions.length){
-//         endQuiz()
-//     } else {
-//         quizQs()
-//     }
-// }
+    showElement(QuizSections, EndSection);
+    displayScore();
+    EndHeader();
+  }
+  
+displayScore = () => {
+    Score.textContent = totalTime;
+  }
+  
+EndHeader = () => {
+    if (totalTime === 0) {
+      EndTitle.textContent = "Sorry! time out!";
+    } else {
+      EndTitle.textContent = "Well Done! You have completed the quiz!";
+    }
+  }
