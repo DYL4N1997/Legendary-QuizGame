@@ -45,13 +45,13 @@ class Question {
  
 let currentQuestion = 0;
 
-let totalTime = 75;
+let totalTime = 80;
 let totalTimeInterval;
 let choiceStatusTimeout; 
 
 StartBtn.addEventListener('click', startGame);
 Choices.addEventListener('click', processChoice);
-SubmitScore.addEventListener('submit', processInput);
+// SubmitScore.addEventListener('submit', processInput);
 
 
 function startGame () {
@@ -124,7 +124,31 @@ displayChoiceList = () => {
     getNextQuestion();
 }
 
-
+//Displaying choice statuses
+resetChoiceCondition = () => {
+    clearTimeout(choiceStatusTimeout);
+    TimeRemainingDefaultColor();
+}
+  
+TimeRemainingDefaultColor = () => {
+    TimeRemaining.style.color = "#4616E8";
+}
+  
+styleTimeRemainingWrong = () => {
+    TimeRemaining.style.color = "#E81648";
+}
+  
+checkChoice = (userChoice) => {
+    if (isChoiceCorrect(userChoice)) {
+      displayCorrectChoiceCondition();
+    } else {
+      displayWrongChoiceCondition();
+    }
+  }
+  
+isChoiceCorrect = (choice) => {
+    return choice === QuestionList[currentQuestion].indexOfCorrectChoice;
+  }
 
 
 // /** Set up the pages and get the quiz ready. */
