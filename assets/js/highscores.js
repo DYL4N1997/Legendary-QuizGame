@@ -51,3 +51,11 @@ AddHighScore = (highscores) => {
     });
 }
 
+RenderHighscoreTableRow = (rankItem, scoreNum, initialsText) => {
+    const tableRow = document.createElement('tr');
+    tableRow.appendChild(rankItem);
+    tableRow.appendChild(scoreNum);
+    tableRow.appendChild(initialsText);
+    return tableRow;
+}
+
