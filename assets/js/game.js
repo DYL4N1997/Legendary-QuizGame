@@ -116,8 +116,8 @@ displayChoiceList = () => {
 }
   
   //when user answers a question
-  function processChoice (event) {
-    const userChoice = parseInt(event.target.parentElement.dataset.index);
+  function processChoice (e) {
+    const userChoice = parseInt(e.target.parentElement.dataset.index);
   
     resetChoiceCondition();
     checkChoice(userChoice);
@@ -206,3 +206,26 @@ EndHeader = () => {
       EndTitle.textContent = "Well Done! You have completed the quiz!";
     }
 }
+
+// Submitting Initials
+processInput = (e) => {
+    e.preventDefault();
+  
+    const initials = InitialsInput.value.toUpperCase();
+  
+    if (isInputValid(initials)) {
+      const score = totalTime;
+      const highscoreEntry = NewHighscoreEntry(initials, score);
+      saveHighscoreEntry(highscoreEntry);
+      window.location.href= "./highscores.html";
+    }
+  }
+  
+    NewHighscoreEntry = (initials, score) => {
+    const entry = {
+      initials: initials,
+      score: score,
+    }
+    return entry;
+}
+  
