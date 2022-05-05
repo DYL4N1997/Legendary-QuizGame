@@ -20,11 +20,34 @@ RenderHighscoreTable = () => {
 AddHighScore = (highscores) => {
     highscores = JSON.parse(highscores);
   
-    highscores.forEach(function(scoreItem, index) {
-      const rankCell = createRankCell(index + 1);
-      const scoreCell = createScoreCell(scoreItem.score);
-      const initialsCell = createInitialsCell(scoreItem.initials);
-      const highscoreTableRow = createHighscoreTableRow(rankCell, scoreCell, initialsCell);
+    highscores.forEach((scoreItem, index) => {
+
+      const rankItem = RenderRank(index + 1); {
+        RenderRank = (rank) => {
+            const rankItem = document.createElement('td');
+            rankItem.textContent = `#${rank}`;
+            return rankItem;
+        }
+      }
+
+      const scoreNum = RenderScore(scoreItem.score); {
+        RenderScore = (score) => {
+            const scoreNum = document.createElement('td');
+            scoreNum.textContent = score;
+            return scoreNum;
+        }
+      }
+
+      const initialsText = createInitialsCell(scoreItem.initials); {
+        RenderInitials = (initials) => {
+            const initialsCell = document.createElement('td');
+            initialsCell.textContent = initials;
+            return initialsCell;
+        }
+     }
+
+      const highscoreTableRow = RenderHighscoreTableRow(rankItem, scoreNum, initialsText);
       HighScoreTable.appendChild(highscoreTableRow);
     });
-  }
+}
+
