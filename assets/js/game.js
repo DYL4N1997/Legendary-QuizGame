@@ -53,7 +53,8 @@ StartBtn.addEventListener('click', startGame);
 Choices.addEventListener('click', processChoice);
 SubmitScore.addEventListener('submit', processInput);
 
-startGame = () => {
+
+function startGame () {
     showElement(QuizSections, QuizSection);
     
     displayTime();  
@@ -95,6 +96,35 @@ checkTime = () => {
     }
 }
   
+displayQuestion = () => {
+    Questions.textContent = QuestionList[currentQuestion].question;
+  
+    displayChoiceList();
+}
+  
+displayChoiceList = () => {
+    Choices.innerHTML = "";
+  
+    QuestionList[currentQuestion].choices.forEach((answer, index) => {
+      const li = document.createElement("li");
+      li.dataset.index = index;
+      const button = document.createElement("button");
+      button.textContent = (index + 1) + ". " + answer;
+      li.appendChild(button);
+      Choices.appendChild(li);
+    });
+}
+  
+  //when user answers a question
+  function processChoice (event) {
+    const userChoice = parseInt(event.target.parentElement.dataset.index);
+  
+    resetChoiceCondition();
+    checkChoice(userChoice);
+    getNextQuestion();
+}
+
+
 
 
 // /** Set up the pages and get the quiz ready. */
