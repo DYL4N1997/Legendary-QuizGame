@@ -205,4 +205,4 @@ EndHeader = () => {
     } else {
       EndTitle.textContent = "Well Done! You have completed the quiz!";
     }
-  }
+}
