@@ -51,7 +51,7 @@ let choiceStatusTimeout;
 
 StartBtn.addEventListener('click', startGame);
 Choices.addEventListener('click', processChoice);
-// SubmitScore.addEventListener('submit', processInput);
+SubmitScore.addEventListener('submit', processInput);
 
 
 function startGame () {
@@ -208,18 +208,17 @@ EndHeader = () => {
 }
 
 // Submitting Initials
-processInput = (e) => {
+function processInput (e) {
     e.preventDefault();
   
     const initials = InitialsInput.value.toUpperCase();
   
-    if (isInputValid(initials)) {
-      const score = totalTime;
-      const highscoreEntry = NewHighscoreEntry(initials, score);
-      saveHighscoreEntry(highscoreEntry);
-      window.location.href= "./highscores.html";
-    }
-  }
+    const score = totalTime;
+    const highscoreEntry = NewHighscoreEntry(initials, score);
+    saveHighscoreEntry(highscoreEntry);
+    window.location.href= "./highscores.html";
+}
+
   
     NewHighscoreEntry = (initials, score) => {
     const entry = {
@@ -230,7 +229,7 @@ processInput = (e) => {
 }
   
 saveHighscoreEntry = (highscoreEntry) => {
-    const currentScores = getScoreList();
+    const currentScores = ScoreList();
     AddToHighscoreList(highscoreEntry, currentScores);
     localStorage.setItem('scoreList', JSON.stringify(currentScores));
 }
