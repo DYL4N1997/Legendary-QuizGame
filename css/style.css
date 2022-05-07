@@ -158,3 +158,12 @@ main {
   border-radius: 4px;
   box-sizing: border-box;
 }
+
+#highscores-table {
+  text-align: left;
+  color: purple;
+}
+
+th {
+  text-decoration: underline;
+}

@@ -23,19 +23,12 @@ function AddHighScores (highscores) {
     highscores = JSON.parse(highscores);
   
     highscores.forEach((scoreItem, index) => {
-        const rankItem = RenderRank(index + 1);
         const scoreNum = RenderScore(scoreItem.score);
         const initialsText = RenderInitials(scoreItem.initials);
-        const highscoreTableRow = RenderHighscoreTableRow(rankItem, scoreNum, initialsText);
+        const highscoreTableRow = RenderHighscoreTableRow(scoreNum, initialsText);
         HighScoreTable.appendChild(highscoreTableRow);
     });
 }
-
-function RenderRank (rank) {
-    const rankItem = document.createElement('td');
-    rankItem.textContent = `#${rank}`;
-    return rankItem;
-  }
   
 function RenderScore (score) {
     const scoreNum = document.createElement('td');
@@ -49,9 +42,8 @@ function RenderInitials (initials) {
     return initialsText;
   }
 
-function RenderHighscoreTableRow (rankItem, scoreNum, initialsText) {
+function RenderHighscoreTableRow (scoreNum, initialsText) {
     const tableRow = document.createElement('tr');
-    tableRow.appendChild(rankItem);
     tableRow.appendChild(scoreNum);
     tableRow.appendChild(initialsText);
     return tableRow;
