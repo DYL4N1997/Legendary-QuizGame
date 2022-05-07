@@ -161,9 +161,13 @@ main {
 
 #highscores-table {
   text-align: left;
-  color: purple;
 }
 
 th {
   text-decoration: underline;
+  color: purple;
+}
+
+tr {
+  color: green;
 }

@@ -81,7 +81,7 @@ displayTime = () => {
 }
   
 startTimer = () => {
-    totalTimeInterval = setInterval(function() {
+    totalTimeInterval = setInterval(() => {
       totalTime--;
       displayTime();
       checkTime();
@@ -151,7 +151,7 @@ isChoiceCorrect = (choice) => {
 }
 
 displayWrongChoiceCondition = () => {
-    deductTimeBy(10);
+    deductTimeBy(7);
   
     styleTimeRemainingWrong();
     showElement(ChoiceCondition, Wrong);
