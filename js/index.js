@@ -203,7 +203,7 @@ EndHeader = () => {
     if (totalTime === 0) {
       EndTitle.textContent = "Sorry! time out!";
     } else {
-      EndTitle.textContent = "Well Done! You have completed the quiz!";
+      EndTitle.textContent = "Well Done Legend! You have completed the quiz!";
     }
 }
 
